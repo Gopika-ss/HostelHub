@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Hostel{% endblock %}
+
+{% block content %}
+
+<section class="about-page">
+
+    <img src="{% static 'hostel/images/b.jpeg' %}" class="about-bg" alt="Hostel">
+    <div class="about-overlay"></div>
+
+    <div class="about-content">
+
+        <div class="about-card">
+            <h1>About Campus Girls Hostel</h1>
+
+            <p class="about-tagline">Safe • Comfortable • Student Friendly</p>
+
+            <p>
+                Campus Girls Hostel provides safe and comfortable accommodation
+                for students within the college campus. The hostel is designed to
+                create a supportive environment where students can focus on their
+                studies while enjoying a secure and well-maintained living space.
+            </p>
+
+            <p>
+                The hostel offers modern shared rooms, study facilities, Wi-Fi access,
+                and essential amenities to ensure a pleasant stay for all residents.
+            </p>
+
+            <p>
+                Rooms are allocated based on availability and student preferences
+                through the hostel management system.
+            </p>
+        </div>
+
+        <!-- INFO CARDS -->
+        <div class="hostel-info">
+
+            <div class="info-card">
+                <h3>Total Rooms</h3>
+                <p>120</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Blocks</h3>
+                <p>A, B, C</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Floors</h3>
+                <p>3</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Room Types</h3>
+                <p>2 Sharing, 4 Sharing, 6 Sharing</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

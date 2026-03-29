@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Register{% endblock %}
+
+{% block content %}
+
+<div class="login-page">
+
+    <div class="login-card">
+
+        <h2>Create Account</h2>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label>Username</label>
+            <input type="text" name="username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <label>FullName</label>
+            <input type="text" name="full_name" required>
+            <label>Department</label>
+            <input type="text" name="department" required>
+
+            <label>Register Number</label>
+            <input type="text" name="register_no" required>
+
+            <label>Year</label>
+            <input type="number" name="year" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="register-text">
+            Already registered?
+            <a href="{% url 'student_login' %}">Login here</a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

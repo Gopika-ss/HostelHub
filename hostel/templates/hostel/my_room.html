@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}My Room{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>🛏 My Room</h1>
+    <a href="{% url 'student_dashboard' %}" class="back-btn">← Back</a>
+</div>
+
+{% if allocation %}
+
+<div class="room-wrapper">
+
+    <div class="room-card">
+
+        <div class="room-header">
+            Room {{ allocation.room.room_number }}
+        </div>
+        <div class="room-top">
+
+            <!-- ROOM IMAGE -->
+            <div class="room-image">
+
+                {% if allocation.room.room_type == "2 Sharing" %}
+                    <img src="{% static 'hostel/images/two.jpeg' %}" class="room-img">
+
+                {% elif allocation.room.room_type == "4 Sharing" %}
+                    <img src="{% static 'hostel/images/four.jpeg' %}" class="room-img">
+
+                {% elif allocation.room.room_type == "6 Sharing" %}
+                    <img src="{% static 'hostel/images/six.jpeg' %}" class="room-img">
+
+                {% endif %}
+
+            </div>
+
+            <!-- ROOM DETAILS -->
+            <div class="room-body">
+
+                <div class="room-item">
+                    <span>Block</span>
+                    <strong>{{ allocation.room.block }}</strong>
+                </div>
+
+                <div class="room-item">
+                    <span>Floor</span>
+                    <strong>{{ allocation.room.floor }}</strong>
+                </div>
+
+                <div class="room-item">
+                    <span>Room Type</span>
+                    <strong>{{ allocation.room.room_type }}</strong>
+                </div>
+
+                <div class="room-item">
+                    <span>Total Beds</span>
+                    <strong>{{ allocation.room.capacity }}</strong>
+                </div>
+
+                <div class="room-item">
+                    <span>Occupied Beds</span>
+                    <strong>{{ allocation.room.allocations.count }}</strong>
+                </div>
+
+                <div class="room-item">
+                    <span>Status</span>
+
+                    {% if allocation.room.allocations.count == allocation.room.capacity %}
+                        <span class="badge full">Full</span>
+                    {% else %}
+                        <span class="badge available">Available</span>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% else %}
+
+<div class="room-wrapper">
+    <div class="room-card empty-card">
+        <h2>No Room Allocated</h2>
+        <p>You have not been assigned a room yet.</p>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

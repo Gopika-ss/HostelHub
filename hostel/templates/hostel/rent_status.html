@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Rent Status{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>💰 Rent Status</h1>
+    <a href="{% url 'student_dashboard' %}" class="back-btn">← Back</a>
+</div>
+
+<div class="card rent-card">
+
+    {% if no_room %}
+        <div class="empty-box">
+            <h3>No Room Allocated</h3>
+        </div>
+
+    {% elif fees %}
+
+        <div class="rent-summary">
+            <h2>Monthly Rent Details</h2>
+        </div>
+
+        <table class="rent-table">
+            <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Paid On</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fee in fees %}
+                <tr class="{% if not fee.paid and fee.due_date < today %}overdue-row{% endif %}">
+                    
+                    <td class="amount">₹ {{ fee.amount }}</td>
+
+                    <td>
+                        {% if fee.paid %}
+                            <span class="badge paid-badge">Paid</span>
+                        {% else %}
+                            {% if fee.due_date < today %}
+                                <span class="badge overdue-badge">Overdue</span>
+                            {% else %}
+                                <span class="badge pending-badge">Pending</span>
+                            {% endif %}
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        {{ fee.paid_on|date:"d M Y"|default:"-" }}
+                    </td>
+
+                    <td>
+                        {{ fee.due_date|date:"d M Y" }}
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <div class="empty-box">
+            <h3>No Rent Records</h3>
+            <p>Your rent details will appear here.</p>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

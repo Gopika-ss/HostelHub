@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Room Types{% endblock %}
+{% block content %}
+<h1 class="section-title">Room Types</h1>
+<div class="room-types-container">
+<div class="room-type-card">
+<img src="{% static 'hostel/images/two.jpeg' %}" alt="2 Sharing Room">
+<h3>2 Sharing</h3>
+<p>• Two Beds</p>
+<p>• More Privacy</p>
+<p>• Comfortable Living</p>
+<p><strong>₹4000 / month</strong></p>
+</div>
+<div class="room-type-card">
+<img src="{% static 'hostel/images/four.jpeg' %}" alt="4 Sharing Room">
+<h3>4 Sharing</h3>
+<p>• Four Beds</p>
+<p>• Balanced Space</p>
+<p>• Affordable Option</p>
+<p><strong>₹2500 / month</strong></p>
+</div>
+<div class="room-type-card">
+<img src="{% static 'hostel/images/six.jpeg' %}" alt="6 Sharing Room">
+<h3>6 Sharing</h3>
+<p>• Six Beds</p>
+<p>• Budget Friendly</p>
+<p>• Shared Facilities</p>
+<p><strong>₹2000 / month</strong></p>
+</div>
+</div>
+{% endblock %}
+

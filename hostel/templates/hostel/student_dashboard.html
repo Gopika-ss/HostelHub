@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- DASHBOARD HEADER-->
+<div class="dashboard-header">
+    <h1>🎓 Student Dashboard</h1>
+    <div class="header-actions">
+        <a href="{% url 'student_profile' %}" class="profile-icon">👤</a>
+        <span class="profile-text">Profile</span>   
+        <a href="{% url 'student_logout' %}" class="btn logout-btn">Logout</a>
+    </div>
+
+</div>
+<!--WELCOME CARD -->
+<div class="card">
+    <h2>
+        Welcome,
+        {{ request.user.get_full_name|default:request.user.username }}
+    </h2>
+</div>
+<!--PROFILE SUMMARY -->
+<div class="card profile-card">
+
+    <div class="profile-grid">
+
+        <div class="profile-item">
+            <span>Register No</span>
+            <strong>{{ profile.register_no }}</strong>
+        </div>
+       
+        <div class="profile-item">
+            <span>Department</span>
+            <strong>{{ profile.department }}</strong>
+        </div>
+
+        <div class="profile-item">
+            <span>Year</span>
+            <strong>{{ profile.year }}</strong>
+        </div>
+        <!-- NEW: ROOM PREFERENCE -->
+        <div class="profile-item">
+            <span>Room Preference</span>
+            <strong>
+                {{ profile.room_preference|default:"Not Set" }}
+            </strong>
+        </div>
+    </div>
+    <!-- BUTTON TO SET / UPDATE -->
+    <div style="margin-top:15px;">
+        <a href="{% url 'room_preference' %}" class="btn small-btn">
+            Set / Update Preference
+        </a>
+    </div>
+
+</div>
+<!--STATUS GRID  -->
+<div class="status-grid">
+    <!-- ROOM STATUS -->
+    <div class="card">
+        <h3>Room Status</h3>
+        {% if allocation %}
+            <p class="ok">Allocated ✅</p>
+            <a href="{% url 'my_room' %}" class="btn small-btn">
+                View Allocated Room
+            </a>
+        {% else %}
+            <p class="bad">Not Allocated ❌</p>
+            <p style="margin-top:10px;">
+                Please set your room preference before allocation.
+            </p>
+        {% endif %}
+    </div>
+    <!-- RENT STATUS -->
+    <div class="card">
+        <h3>Rent Status</h3>
+        <a href="{% url 'rent_status' %}" class="btn">
+            View Rent History
+        </a>
+    </div>
+</div>
+{% endblock %}

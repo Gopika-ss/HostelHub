@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - HostelHub{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <img src="{% static 'hostel/images/b.jpeg' %}" alt="Hostel" class="hero-bg">
+    <div class="hero-overlay">
+    </div>
+    <div class="hero-content">
+        <h2>Welcome to</h2>
+        <h1>Hostel<span>Hub</span>
+        </h1>
+        <p>Simplifying Room Management & <br> Student Accommodation</p>
+<p class="hostel-info">
+    Campus Girls Hostel – Safe • Comfortable • Student-Friendly Living
+</p>
+<div class="hero-buttons">
+<a href="{% url 'student_login' %}" class="btn-primary">Get Started</a>
+<a href="{% url 'facilities' %}" class="btn-outline">Explore Facilities</a>
+</div>
+<div class="hero-features">
+    <div class="feature">Room Allocation</div>
+<div class="feature">Check Availability </div>
+<div class="feature">Safe & Secure</div>
+</div>
+</div>
+</section
+>{% endblock %}

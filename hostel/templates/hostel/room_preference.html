@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Select Room Preference{% endblock %}
+{% block content %}
+<h1 class="section-title">Choose Your Room Preference</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="room-types-container">
+        <div class="room-type-card">
+            <img src="{% static 'hostel/images/two.jpeg' %}" alt="2 Sharing Room">
+            <h3>2 Sharing</h3>
+            <p>• Two Beds</p>
+            <p>• More Privacy</p>
+            <p><strong>₹4000 / month</strong></p>
+            <button type="submit" name="room_preference" value="2 Sharing" class="btn">
+                Select
+            </button>
+        </div>
+        <div class="room-type-card">
+            <img src="{% static 'hostel/images/four.jpeg' %}" alt="4 Sharing Room">
+            <h3>4 Sharing</h3>
+            <p>• Four Beds</p>
+            <p>• Affordable</p>
+            <p><strong>₹2500 / month</strong></p>
+            <button type="submit" name="room_preference" value="4 Sharing" class="btn">
+                Select
+            </button>
+        </div>
+        <div class="room-type-card">
+            <img src="{% static 'hostel/images/six.jpeg' %}" alt="6 Sharing Room">
+            <h3>6 Sharing</h3>
+            <p>• Six Beds</p>
+            <p>• Budget Friendly</p>
+            <p><strong>₹2000 / month</strong></p>
+            <button type="submit" name="room_preference" value="6 Sharing" class="btn">
+                Select
+            </button>
+        </div>
+    </div>
+</form>
+<div class="availability-card">
+<h2 class="section-title">Room Availability Overview</h2>
+
+<table class="rent-table">
+    <tr>
+        <th>Room No</th>
+        <th>Type</th>
+        <th>Total Beds</th>
+        <th>Available Beds</th>
+        <th>Status</th>
+    </tr>
+
+    {% for room in rooms %}
+    <tr>
+        <td>{{ room.room_number }}</td>
+        <td>{{ room.room_type }}</td>
+        <td>{{ room.capacity }}</td>
+        <td>{{ room.available }}</td>
+
+        <td>
+            {% if room.available > 0 %}
+                <span class="badge available">Available</span>
+            {% else %}
+                <span class="badge full">Full</span>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

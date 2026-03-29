@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}Campus Girls Hostel{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="{% block body_class %}site-bg{% endblock %}">
+<nav class="nav">
+<h2 class="logo">HostelHub</h2>
+<ul class="navList">
+<li><a href="{% url 'index' %}" class="navLink">Home</a></li>
+<li><a href="{% url 'about' %}" class="navLink">About</a></li>
+<li><a href="{% url 'room_types' %}" class="navLink">Rooms</a></li>
+<li><a href="{% url 'contact' %}" class="navLink">Contact</a></li>
+<li><a href="{% url 'student_login' %}" class="navLink">Student</a></li>
+<li><a href="/admin/" class="navLink">Admin</a></li>
+</ul>
+</nav>
+<main>
+{% block content %}
+{% endblock %}
+</main>
+<footer class="footer">
+<p>© 2026 HostelHub. All rights reserved.</p>
+<p>Developed by Gopika</p>
+</footer>
+</body>
+</html>

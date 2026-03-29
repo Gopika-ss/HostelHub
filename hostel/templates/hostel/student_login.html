@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Student Login{% endblock %}
+
+{% block content %}
+
+<div class="login-page">
+    <div class="login-card">
+        <h2>Student Login</h2>
+
+        <!-- SUCCESS / INFO MESSAGES -->
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: green;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <!-- ERROR MESSAGE -->
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="post" action="{% url 'student_login' %}">
+            {% csrf_token %}
+
+            <label>Username</label>
+            <input type="text" name="username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required autocomplete="current-password">
+            
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="register-text">
+            New student? <a href="{% url 'student_register' %}">
+                Register here
+            </a>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="facilities-page">
+
+<div class="page-header">
+    <h1>🏢 Campus Girls Hostel Facilities</h1>
+    <p class="location">📍 On-Campus Hostel</p>
+</div>
+<section class="hostelDetails">
+    <h3>Campus Girls Hostel</h3>
+    <p>
+        Campus Girls Hostel offers a secure, comfortable, and 
+        student-friendly residential experience within the campus.
+    </p>
+    <p>
+        Rooms are allocated based on availability and student preferences 
+        through the hostel management system.
+    </p>
+</section>
+
+<section class="facility-images">
+    <div class="image-block">
+        <h2>🛏 Student Rooms</h2>
+        <img src="{% static 'hostel/images/two.jpeg' %}" alt="Student Rooms">
+    </div>
+
+    <div class="image-block">
+        <h2>🍽 Mess / Dining Hall</h2>
+        <img src="{% static 'hostel/images/hos2.jpeg' %}" alt="Dining Area">
+    </div>
+
+    <div class="image-block">
+        <h2>📚 Study & Reading Room</h2>
+        <img src="{% static 'hostel/images/hos1.jpeg' %}" alt="Study Room">
+    </div>
+</section>
+
+<section class="highlight-box">
+    <p>
+        ✔ Affordable accommodation with 2, 4, and 6 sharing rooms  
+        ✔ Safe and secure campus environment  
+        ✔ Designed for student comfort and productivity  
+    </p>
+</section>
+
+<section class="section facilities-section">
+<h2 class="section-title">Life at Hostel</h2>
+
+<div class="facilities">
+
+    <div class="facilityBox">
+        <h3>📶 High-Speed Campus WiFi</h3>
+        <p>Seamless internet connectivity across all floors.</p>
+    </div>
+
+    <div class="facilityBox">
+        <h3>🛏 Shared Rooms</h3>
+        <p>2, 4, and 6 sharing rooms based on student preference.</p>
+    </div>
+
+    <div class="facilityBox">
+        <h3>🍽 Nutritious Dining</h3>
+        <p>Healthy and hygienic meals served daily.</p>
+    </div>
+
+    <div class="facilityBox">
+        <h3>💡 24×7 Power Supply</h3>
+        <p>Uninterrupted electricity with backup systems.</p>
+    </div>
+
+    <div class="facilityBox">
+        <h3>🔐 Security System</h3>
+        <p>CCTV and controlled access for safety.</p>
+    </div>
+
+    <div class="facilityBox">
+        <h3>🧺 Laundry Facility</h3>
+        <p>Convenient laundry services for students.</p>
+    </div>
+
+    <div class="facilityBox">
+        <h3>💧 Drinking Water</h3>
+        <p>Purified and safe drinking water supply.</p>
+    </div>
+
+    <div class="facilityBox">
+        <h3>🏥 First Aid Support</h3>
+        <p>Basic medical assistance available when needed.</p>
+    </div>
+
+</div>
+</section>
+
+</div>
+{% endblock %}
